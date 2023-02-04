@@ -1,8 +1,7 @@
 import React from "react";
-import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { LOGIN } from "./helpers/variables";
-import Login from "./features/Login/Login";
+import { LOGIN } from "./sharedComponents/helpers/variables";
+import Login from "./features/Login/index";
 
 function App() {
   const router = createBrowserRouter([{ path: LOGIN, element:<Login/>, }]);
