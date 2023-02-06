@@ -1,7 +1,5 @@
 import cn from "classnames";
-import PropTypes from "prop-types";
 import { ReactNode } from "react";
-import { Link } from "react-router-dom";
 
 type Variant =
   | "h1"
@@ -37,20 +35,6 @@ const variantsMapping = {
   p: "p",
 };
 
-const fontSizeVariantMapping = {
-  h1: "h1 text-4xl font-bold",
-  h2: "text-3xl font-bold",
-  h3: "",
-  h4: "text-2xl",
-  h5: "text-xl",
-  h6: "text-lg font-bold",
-  subheader1: "text-base font-bold leading-4 tracking-wider",
-  subheader2: "text-subheader2 font-semibold leading-4 tracking-wider",
-  body1: "lg:text-base  leading-6 tracking-wider font-normal",
-  body2: "lg:text-sm text-base leading-4 tracking-normal",
-  small: "text-xs leading-4 tracking-wider font-medium",
-};
-
 const fontSizeVariantMapping2 = {
   display: "text-display-sm lg:text-display-lg tracking-normal font-bold ",
   headline: "text-headline-sm lg:text-headline-lg font-bold",
@@ -62,7 +46,6 @@ const fontSizeVariantMapping2 = {
 };
 
 type Color =
-  | "defaultHeader"
   | "defaultBody"
   | "white"
   | "red"
@@ -70,8 +53,7 @@ type Color =
   | "link";
 
 const colorVariantMapping = {
-  defaultHeader: "text-primary-color",
-  defaultBody: "text-primary-color",
+  defaultBody: "text-primary",
   white: "text-white",
   red: "text-danger",
   black: "prose-black",
@@ -121,7 +103,7 @@ const Typography: React.FC<TypographyProps> = ({
 
 Typography.defaultProps = {
   variant: "p",
-  color: "defaultHeader",
+  color: "defaultBody",
 };
 
 // Typography.propTypes = {

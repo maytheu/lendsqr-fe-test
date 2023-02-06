@@ -8,7 +8,7 @@ interface LoginProps {
 const LoginLayout: React.FC<LoginProps> = ({ children }) => {
   return (
     <div className="grid grid-cols-1 h-screen md:grid-cols-2">
-      <div className="hidden px-10 lg:px-20 bg-bg md:grid">
+      <div className="hidden px-10 lg:px-20 bg-bg bg-opacity-10 md:grid">
         <img src={logo} alt="Logo" className="mt-12" />
         <img
           src={signin}
