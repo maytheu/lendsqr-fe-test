@@ -3,5 +3,6 @@ import logo from "./logo.svg";
 import icon from "./icon.png";
 import arrowDown from "./arrow_down.png";
 import notify from './notify.png'
+import orgAcct from './orgAcct.png'
 
-export { signin, logo, icon, arrowDown, notify };
+export { signin, logo, icon, arrowDown, notify, orgAcct };
