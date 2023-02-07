@@ -57,7 +57,7 @@ const colorVariantMapping = {
   white: "text-white",
   red: "text-danger",
   black: "prose-black",
-  link: "text-blue-200",
+  link: "text-link",
 };
 
 interface TypographyProps {

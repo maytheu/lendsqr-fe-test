@@ -8,6 +8,7 @@ module.exports = {
         bg: "#E5E5E5",
         container: "#545F7D",
         "input-text": "#545F7D",
+        link: "#213F7D",
       },
     },
   },
