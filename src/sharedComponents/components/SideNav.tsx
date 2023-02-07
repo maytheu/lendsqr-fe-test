@@ -90,7 +90,7 @@ const SideNav = () => {
     },
   ];
   return (
-    <div className=" flex pt-3 flex-col">
+    <div className=" flex pt-10 flex-col">
       <Link to="" className="flex gap-3 items-center pl-4">
         <img src={orgAcct} alt="" className="h-6 w-6" />
         <Typography

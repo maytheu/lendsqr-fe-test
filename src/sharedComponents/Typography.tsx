@@ -93,7 +93,7 @@ const Typography: React.FC<TypographyProps> = ({
         capitalize: capitalize,
         uppercase: uppercase,
         lowercase: lowercase,
-      })} ${className}`}
+      })} font-sans ${className}`}
       {...props}
     >
       {children}
