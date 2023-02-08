@@ -29,6 +29,7 @@ import userOutline from "./user-outline.png";
 import money from "./money.png";
 import usersOutline from "./users-outline.png";
 import coin from "./coin.png";
+import image from "./image.png";
 
 export {
   signin,
@@ -62,4 +63,5 @@ export {
   usersOutline,
   money,
   coin,
+  image,
 };

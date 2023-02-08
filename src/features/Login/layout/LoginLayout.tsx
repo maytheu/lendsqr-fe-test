@@ -13,7 +13,7 @@ const LoginLayout: React.FC<LoginProps> = ({ children }) => {
         <img
           src={signin}
           alt="w"
-          className="w-full h-44 lg:h-60 -mt-20 lg:-mt-32"
+          className="w-full h-44 lg:h-60 -mt-20 lg:-mt-32 2xl:h-96"
         />
       </div>
 

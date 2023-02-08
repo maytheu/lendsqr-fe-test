@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { arrowDown, icon, logo } from "../../assets";
+import { arrowDown, icon, image, logo } from "../../assets";
 import { USER } from "../helpers/variables";
 import { Typography } from "../";
 import { Avatar } from "./";
@@ -20,9 +20,9 @@ const Header: React.FC<any> = () => {
           </Link>
         </div>
 
-        <div className="hidden md:grid col-span-2 flex-shrink flex-grow-0 justify-start px-2">
-          <div className="inline-block">
-            <div className="inline-flex items-center max-w-full">
+        <div className="hidden md:block col-span-2 flex-shrin flex-grow- justify-start md:-ml-20 2xl:-ml-56">
+          <div className="grid grid-cols-3">
+            <div className=" col-span-2 2xl:col-span- items-center max-w-full">
               <form className="flex items-center">
                 <label className="sr-only">Search</label>
                 <div className="relative w-full">
@@ -40,13 +40,15 @@ const Header: React.FC<any> = () => {
                 </button>
               </form>
             </div>
+
+            
           </div>
         </div>
       </div>
 
       <div className="flex-initial">
         <div className="grid grid-cols-3 gap-x-1 justify-end items-center">
-          <Link {...{ to: USER, className: "justify-center mx-auto pl-4" }}>
+          <Link {...{ to: USER, className: "justify-center mx-auto pl-4 2xl:pl-10" }}>
             <Typography
               {...{
                 color: "black",
@@ -63,11 +65,11 @@ const Header: React.FC<any> = () => {
             <BellIcon className="h-6 w-6" />
 
             <Avatar
-              {...{ name: icon, avatarAlt: "user", className: "w-10 h-10" }}
+              {...{ name: image, avatarAlt: "user", className: "w-10 h-10" }}
             />
           </div>
 
-          <div className="flex items-center">
+          <div className="flex items-center 2xl:-ml-10">
             <Typography
               {...{
                 variant: "small",
@@ -75,7 +77,7 @@ const Header: React.FC<any> = () => {
                 color: "black",
               }}
             >
-              Name
+              Adedeji
             </Typography>
             <img {...{ src: arrowDown, alt: "", className: "h-1.5 pl-2" }} />
           </div>

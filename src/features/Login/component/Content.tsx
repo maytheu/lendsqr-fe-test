@@ -1,5 +1,5 @@
-import {  useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Typography } from "../../../sharedComponents";
 import { LOGIN } from "../../../sharedComponents/helpers/variables";
 
@@ -8,20 +8,22 @@ interface FormData {
   password: string;
 }
 const Content = () => {
-  const [inputs, setInputs] = useState<FormData>();
+  const navigate = useNavigate();
+  const [inputs, setInputs] = useState<FormData>({ email: "", password: "" });
 
-  const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
-    // const { name, value } = event.currentTarget;
-    setInputs({email:'', password:''});
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setInputs({ ...inputs, [name]: value });
   };
 
   const onLogin = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    console.log(inputs);
+    if (inputs.email.length > 0 && inputs.password.length > 0)
+      navigate("/user");
   };
   return (
-    <div className="px-10 flex-row h-screen md:px-14 lg:px-20">
-      <div className="flex-row justify-center items-center h-full content-center py-32">
+    <div className="px-10 flex-row h-screen md:px-14 lg:px-20 2xl:px-48">
+      <div className="flex-row justify-center items-center h-full content-center py-32 2xl:py-56">
         <Typography
           variant="h2"
           fontVariant="headline"
@@ -42,10 +44,10 @@ const Content = () => {
         <form className="pt-6" onSubmit={onLogin}>
           <input
             type="email"
+            name="email"
             placeholder="Email"
             autoComplete="email"
-            name="email"
-            value={inputs?.email}
+            value={inputs.email}
             onChange={handleChange}
             className="relative block w-full appearance-none rounded-none rounded-t-md border border-container border-opacity-20 px-3 py-2 mb-7 text-input-text placeholder-input-text focus:z-10 focus:border-container focus:outline-none focus:ring-container focus:opacity-100 text-xs"
           />
@@ -53,7 +55,7 @@ const Content = () => {
             type="password"
             placeholder="Password"
             name="password"
-            value={inputs?.password}
+            value={inputs.password}
             onChange={handleChange}
             className="relative block w-full appearance-none rounded-none rounded-t-md border border-container border-opacity-20 px-3 py-2 mb-2 text-input-text placeholder-input-text focus:z-10 focus:border-container focus:outline-none focus:ring-container focus:opacity-100 text-xs"
           />
