@@ -1,14 +1,14 @@
 import { Card } from ".";
 import {Typography} from "..";
-import { user } from "../../assets";
+import { coin, money, user, userOutline, usersOutline } from "../../assets";
 
 const Overview = () => {
 
   const overview = [
-    { icon: user, name: "users", values: "2,453", bg:'bg-pink' },
-    { icon: user, name: "users", values: "2,453",bg:'bg-blue' },
-    { icon: user, name: "users", values: "2,453",bg:'bg-orange' },
-    { icon: user, name: "users", values: "2,453", bg:'bg-red' },
+    { icon: userOutline, name: "users", values: "2,453", bg:'bg-pink/20' },
+    { icon: usersOutline, name: "active users", values: "2,453",bg:'bg-blue/20' },
+    { icon: coin, name: "users with loans", values: "2,453",bg:'bg-orange/20' },
+    { icon: money, name: "users with savings", values: "2,453", bg:'bg-red/20' },
   ];
   return (
     <>

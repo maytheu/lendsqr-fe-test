@@ -25,6 +25,10 @@ import badgePercent from "./badge-percent.png";
 import tire from "./tire.png";
 import clipboardList from "./clipboard-list.png";
 import signout from "./sign-out.png";
+import userOutline from "./user-outline.png";
+import money from "./money.png";
+import usersOutline from "./users-outline.png";
+import coin from "./coin.png";
 
 export {
   signin,
@@ -54,4 +58,8 @@ export {
   tire,
   clipboardList,
   badgePercent,
+  userOutline,
+  usersOutline,
+  money,
+  coin,
 };
