@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { arrowDown, icon, logo, notify } from "../../assets";
+import { arrowDown, icon, logo } from "../../assets";
 import { USER } from "../helpers/variables";
 import { Typography } from "../";
 import { Avatar } from "./";

@@ -1,4 +1,4 @@
-import { ComponentState, useState } from "react";
+import {  useState } from "react";
 import { Link } from "react-router-dom";
 import { Typography } from "../../../sharedComponents";
 import { LOGIN } from "../../../sharedComponents/helpers/variables";
@@ -11,8 +11,8 @@ const Content = () => {
   const [inputs, setInputs] = useState<FormData>();
 
   const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
-    const { name, value } = event.currentTarget;
-    // setInputs({ ...inputs, [name]: value });
+    // const { name, value } = event.currentTarget;
+    setInputs({email:'', password:''});
   };
 
   const onLogin = (e: React.SyntheticEvent) => {
