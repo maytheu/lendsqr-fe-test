@@ -20,11 +20,12 @@ const config = {
         fill: {
           1: "rgba(255, 255, 255, 0.10)",
         },
-        bankGradient: "#0179FE",
+        btn: "#39CDCC",
         primary: {
-          100: "#6172F3",
+          100: "#545F7D",
           200: "#3538CD",
           300: "#39CDCC",
+          400: "#213F7D",
         },
       },
 
