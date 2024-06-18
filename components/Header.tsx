@@ -28,14 +28,23 @@ const Header = () => {
           <AvatarImage src="/icons/profile.svg" />
         </Avatar>
 
-        <p className="hidden xl:block font-normal">Adedeji</p>
+        <Link href={"/user-profile"} className="hidden xl:flex">
+          <p className="font-normal">Adedeji</p>
+
+          <Image
+            width={20}
+            height={20}
+            alt="notification"
+            src="/icons/profile_down.svg"
+          />
+        </Link>
 
         <Image
           width={20}
           height={20}
           alt="notification"
           src="/icons/profile_down.svg"
-          className="-ml-4 xl:-ml-3"
+          className="xl:hidden"
         />
 
         <MobileNav />

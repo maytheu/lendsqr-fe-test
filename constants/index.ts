@@ -1,7 +1,7 @@
 export const customerSideLinks = [
   {
     imgURL: "/icons/users.svg",
-    route: "/",
+    route: "/user",
     label: "Users",
   },
   {
@@ -106,3 +106,5 @@ export const settingsSideLinks = [
     label: "audit logs",
   },
 ];
+
+

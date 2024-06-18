@@ -41,7 +41,7 @@ const Menu = () => {
       {/* customer menu */}
       <p className="text-primary-400 pl-6 uppercase font-medium">customers</p>
       {customerSideLinks.map((link) => {
-        isActive = pathName.includes(link.route) && pathName !== "/";
+        isActive = pathName.includes(link.route) && link.route !== "/";
         return (
           <Link
             key={link.label}
@@ -70,7 +70,7 @@ const Menu = () => {
       {/* business menu */}
       <p className="text-primary-400 pl-6 uppercase font-medium">businesses</p>
       {businessSideLinks.map((link) => {
-        isActive = pathName.includes(link.route) && pathName !== "/";
+        isActive = pathName.includes(link.route) && link.route !== "/";
         return (
           <Link
             key={link.label}
@@ -99,7 +99,7 @@ const Menu = () => {
 
       <p className="text-primary-400 pl-6 uppercase font-medium">settings</p>
       {settingsSideLinks.map((link) => {
-        isActive = pathName.includes(link.route) && pathName !== "/";
+        isActive = pathName.includes(link.route) && link.route !== "/";
         return (
           <Link
             key={link.label}

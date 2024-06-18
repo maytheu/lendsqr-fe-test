@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import SideNav from "@/components/SideNav";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function RootLayout({
   children,
@@ -7,11 +8,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="h-screen w-full flex bg-red-300">
+    <main className="h-screen w-full flex">
       <SideNav />
       <div className="flex flex-col size-full">
         <Header />
-        {children}
+        <ScrollArea className="bg-gray-50">{children}</ScrollArea>
       </div>
     </main>
   );

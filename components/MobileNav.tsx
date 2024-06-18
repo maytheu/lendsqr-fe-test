@@ -57,7 +57,7 @@ const MobileNav = () => {
                     </p>
                     {customerSideLinks.map((link) => {
                       isActive =
-                        pathName.includes(link.route) && pathName !== "/";
+                        pathName.includes(link.route) && link.route !== "/";
                       return (
                         <SheetClose asChild key={link.label}>
                           <Link
@@ -91,7 +91,7 @@ const MobileNav = () => {
                     </p>
                     {businessSideLinks.map((link) => {
                       isActive =
-                        pathName.includes(link.route) && pathName !== "/";
+                        pathName.includes(link.route) && link.route !== "/";
                       return (
                         <SheetClose asChild key={link.label}>
                           <Link
@@ -125,7 +125,7 @@ const MobileNav = () => {
                     </p>
                     {settingsSideLinks.map((link) => {
                       isActive =
-                        pathName.includes(link.route) && pathName !== "/";
+                        pathName.includes(link.route) && link.route !== "/";
                       return (
                         <SheetClose asChild key={link.label}>
                           <Link
