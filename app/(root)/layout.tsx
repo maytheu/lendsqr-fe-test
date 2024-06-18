@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import SideNav from "@/components/SideNav";
 
 export default function RootLayout({
@@ -8,7 +9,10 @@ export default function RootLayout({
   return (
     <main className="h-screen w-full flex bg-red-300">
       <SideNav />
-      {children}
+      <div className="flex flex-col size-full">
+        <Header />
+        {children}
+      </div>
     </main>
   );
 }

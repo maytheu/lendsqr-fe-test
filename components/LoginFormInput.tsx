@@ -26,7 +26,7 @@ const LoginFormInput = ({
             <FormControl>
               <Input
                 placeholder={placeholder}
-                className="intput-class"
+                className="input-class"
                 type={name === "password" ? "password" : "text"}
                 {...field}
               />

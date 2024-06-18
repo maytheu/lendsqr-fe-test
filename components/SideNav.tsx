@@ -10,6 +10,7 @@ import {
   customerSideLinks,
   settingsSideLinks,
 } from "@/constants";
+import { ScrollArea } from "./ui/scroll-area";
 
 const SideNav = () => {
   const pathName = usePathname();
@@ -17,14 +18,14 @@ const SideNav = () => {
 
   return (
     <section className={styles.sidebar}>
-      <nav className="flex flex-col gap-4 overflow-y-auto">
+      <nav className="flex flex-col gap-4">
         <Link
           href="/"
           className="mb-12 ml-6 cursor-pointer items-center gap-2 flex"
         >
           <Image src="/icons/logo.svg" width={150} height={32} alt="Logo" />
         </Link>
-        <div className="flex flex-col gap-4 overflow-y-auto">
+        <ScrollArea className={styles.sidebarHeight}>
           {/* dropdown */}
           <Link
             href="/"
@@ -140,7 +141,7 @@ const SideNav = () => {
               </Link>
             );
           })}
-        </div>
+        </ScrollArea>
       </nav>
     </section>
   );
