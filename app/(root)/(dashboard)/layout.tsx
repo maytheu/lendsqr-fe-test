@@ -48,7 +48,7 @@ export default function RootLayout({
                         <div
                           className={`${card.bg} flex-center absolute -top-8 size-12 rounded-full  p-2`}
                         >
-                          <Image src={card.img} width={28} height={28} alt="" />
+                          <Image src={card.img} width={28} height={28} alt={card.title} />
                         </div>
                       </div>
                     </CardHeader>

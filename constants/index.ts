@@ -107,4 +107,35 @@ export const settingsSideLinks = [
   },
 ];
 
-
+export const userDetailLink = [
+  {
+    imgURL: "/icons/detail.svg",
+    route: "/user-profile",
+    label: "General Details",
+  },
+  {
+    imgURL: "/icons/docs.svg",
+    route: "/user-document",
+    label: "documents",
+  },
+  {
+    imgURL: "/icons/bank.svg",
+    route: "/user-bank",
+    label: "bank details",
+  },
+  {
+    imgURL: "/icons/loan_link.svg",
+    route: "/user-loan",
+    label: "loans",
+  },
+  {
+    imgURL: "/icons/save_link.svg",
+    route: "/user-saving",
+    label: "savings",
+  },
+  {
+    imgURL: "/icons/setting.svg",
+    route: "/user-settings",
+    label: "app and system",
+  },
+];

@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import SideNav from "@/components/SideNav";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function RootLayout({
   children,
@@ -12,7 +11,7 @@ export default function RootLayout({
       <SideNav />
       <div className="flex flex-col size-full">
         <Header />
-        <ScrollArea className="bg-gray-50">{children}</ScrollArea>
+        {children}
       </div>
     </main>
   );

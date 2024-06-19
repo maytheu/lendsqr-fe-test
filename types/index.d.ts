@@ -1,8 +1,5 @@
 declare type User = {
-  id: string;
-  name: string;
-  email: string;
-  tier: number;
+  user: Profile;
   phone: string;
   bvn: string;
   gender: "male" | "female";
@@ -13,6 +10,13 @@ declare type User = {
   professtion: Education;
   socials: Social[];
   guarantor: Guarantor[];
+};
+
+declare type Profile = {
+  id: string;
+  name: string;
+  email: string;
+  tier: number;
 };
 
 declare type Account = {
