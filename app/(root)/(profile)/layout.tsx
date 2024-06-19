@@ -23,7 +23,7 @@ export default function RootLayout({
     <main className="size-full flex flex-col bg-gray-50">
       <div className="px-8 pt-5 flex flex-col">
         <UserDetails account={account} user={user} />
-        {children}
+        <main className="flex flex-col size-full bg-white p-5">{children}</main>
       </div>
     </main>
   );
