@@ -8,7 +8,7 @@ const AnimateCurrency = ({ balance }: { balance: number }) => {
       separator=","
       decimal="."
       decimals={2}
-      prefix=" &#x20A6;"
+      prefix="&#x20A6;"
     />
   );
 };

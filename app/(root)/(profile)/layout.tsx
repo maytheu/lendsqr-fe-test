@@ -1,29 +1,22 @@
 import Header from "@/components/Header";
 import SideNav from "@/components/SideNav";
 import UserDetails from "@/components/UserDetails";
+import { Card } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { mockUser } from "@/constants";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const user: Profile = {
-    id: "LSQFf587g90",
-    name: "Grace Effiom",
-    email: "grace@gmail.com",
-    tier: 1,
-  };
-  const account: Account = {
-    accountNum: "9912345678",
-    balance: 200000.0,
-    bank: "Providus Bank",
-  };
   return (
     <main className="size-full flex flex-col bg-gray-50">
       <div className="px-8 pt-5 flex flex-col">
-        <UserDetails account={account} user={user} />
-        <main className="flex flex-col size-full bg-white p-5">{children}</main>
+        <UserDetails account={mockUser.account} user={mockUser.user} />
+        <main className="flex flex-col size-full bg-white py-5">
+          <Card className="shadow-lg bg-white border-none">{children}</Card>
+        </main>
       </div>
     </main>
   );

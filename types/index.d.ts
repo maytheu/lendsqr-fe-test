@@ -1,23 +1,24 @@
 declare type User = {
   user: Profile;
+  account: Account;
+  profession: Education;
+  socials: Socials;
+  guarantor: Guarantors;
+};
+
+declare interface Profile {
+  type: "profile";
+  id: string;
+  name: string;
+  email: string;
+  tier: number;
   phone: string;
   bvn: string;
   gender: "male" | "female";
   isMarried: boolean;
   children: number;
   residence: string;
-  account: Account;
-  professtion: Education;
-  socials: Social[];
-  guarantor: Guarantor[];
-};
-
-declare type Profile = {
-  id: string;
-  name: string;
-  email: string;
-  tier: number;
-};
+}
 
 declare type Account = {
   balance: number;
@@ -25,14 +26,16 @@ declare type Account = {
   accountNum: string;
 };
 
-declare type Education = {
+declare interface Education {
+  type: "education";
   level: string;
   employmentStatus: string;
   employmentDuration: string;
-  income: number;
+  incomeRange: string;
   officialEmail: string;
   loanRepay: number;
-};
+  sector: string;
+}
 
 declare type Social = {
   name: string;
@@ -44,4 +47,17 @@ declare type Guarantor = {
   phone: string;
   email: string;
   relationship: string;
+};
+
+declare type Socials = {
+  type: "social";
+  data: Social[];
+};
+
+declare type Guarantors = {
+  type: "guarantor";
+  data: Guarantor[];
+};
+declare type UserInfoProps = {
+  data: Education | Profile | Socials | Guarantors;
 };

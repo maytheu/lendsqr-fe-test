@@ -139,3 +139,55 @@ export const userDetailLink = [
     label: "app and system",
   },
 ];
+
+export const mockUser: User = {
+  account: { accountNum: "9912345678", balance: 200000, bank: "Providus Bank" },
+  guarantor: {
+    type: "guarantor",
+    data: [
+      {
+        name: "Debby Ogana",
+        email: "debby@gmail.com",
+        phone: "07060780922",
+        relationship: "Sister",
+      },
+      {
+        name: "Debby Ogana",
+        email: "debby@gmail.com",
+        phone: "07060780922",
+        relationship: "Sister",
+      },
+    ],
+  },
+  profession: {
+    employmentDuration: "2 years",
+    employmentStatus: "Employed",
+    incomeRange: "200,000.00 - 400,000.00",
+    level: "B.Sc",
+    loanRepay: 40000,
+    officialEmail: "grace@lendsqr.com",
+    type: "education",
+    sector: "FinTech",
+  },
+  socials: {
+    type: "social",
+    data: [
+      { id: "@grace_effiom", name: "twiiter" },
+      { id: "Grace Effiom", name: "facebook" },
+      { id: "@grace_effiom", name: "Instagram" },
+    ],
+  },
+  user: {
+    email: "grace@gmail.com",
+    id: "LSQFf587g90",
+    name: "Grace Effiom",
+    tier: 1,
+    bvn: "07060780922",
+    children: 0,
+    gender: "female",
+    residence: "Parent’s Apartment",
+    isMarried: false,
+    phone: "07060780922",
+    type: "profile",
+  },
+};

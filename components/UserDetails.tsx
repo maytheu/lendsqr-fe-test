@@ -25,7 +25,7 @@ const UserDetails = ({ user, account }: UserData) => {
     console.log("activate user operation " + JSON.stringify(user));
   };
   return (
-    <section className="flex flex-col justify-start mb-5">
+    <section className="flex flex-col justify-start mb-12">
       <Link href={"/user-transactions"} className="flex gap-3 items-center">
         <Image
           width={15}
@@ -54,7 +54,7 @@ const UserDetails = ({ user, account }: UserData) => {
         </div>
       </div>
 
-      <Card className="shadow-lg bg-white">
+      <Card className="shadow-lg bg-white border-none">
         <CardContent className="flex flex-col xl:flex-row items-center gap-3 justify-start pt-8">
           <div className="flex my-8 items-center">
             <div className="relative flex">
