@@ -1,7 +1,7 @@
 export const customerSideLinks = [
   {
     imgURL: "/icons/users.svg",
-    route: "/user",
+    route: "/user-transactions",
     label: "Users",
   },
   {
@@ -191,3 +191,88 @@ export const mockUser: User = {
     type: "profile",
   },
 };
+
+export const tableLink:TableData[] = [
+  {
+    organization: "Lendsqr",
+    username: "Adedeji",
+    email: "adedeji@lendsqr.com",
+    phone: "08078903721",
+    date: "May 15, 2020 10:00 AM",
+    status: "Inactive",
+  },
+  {
+    organization: "Irorun",
+    username: "Debby Ogana",
+    email: "debby2@irorun.com",
+    phone: "08160780928",
+    date: "Apr 30, 2020 10:00 AM",
+    status: "Pending",
+  },
+  {
+    organization: "Lendstar",
+    username: "Grace Effiom",
+    email: "grace@lendstar.com",
+    phone: "07060780922",
+    date: "Apr 30, 2020 10:00 AM",
+    status: "Active",
+  },
+  {
+    organization: "Lendsqr",
+    username: "Tosin Dokunmu",
+    email: "tosin@lendsqr.com",
+    phone: "07003309226",
+    date: "Apr 10, 2020 10:00 AM",
+    status: "Pending",
+  },
+  {
+    organization: "Lendsqr",
+    username: "Tosin Dokunmu",
+    email: "tosin@lendsqr.com",
+    phone: "08060780900",
+    date: "Apr 10, 2020 10:00 AM",
+    status: "Active",
+  },
+  {
+    organization: "Lendsqr",
+    username: "Adedeji",
+    email: "adedeji@lendsqr.com",
+    phone: "08078903721",
+    date: "May 15, 2020 10:00 AM",
+    status: "Blacklisted",
+  },
+  {
+    organization: "Irorun",
+    username: "Debby Ogana",
+    email: "debby2@irorun.com",
+    phone: "08160780928",
+    date: "Apr 30, 2020 10:00 AM",
+    status: "Pending",
+  },
+  {
+    organization: "Lendstar",
+    username: "Grace Effiom",
+    email: "grace@lendstar.com",
+    phone: "07060780922",
+    date: "Apr 30, 2020 10:00 AM",
+    status: "Blacklisted",
+  },
+  {
+    organization: "Lendsqr",
+    username: "Tosin Dokunmu",
+    email: "tosin@lendsqr.com",
+    phone: "07003309226",
+    date: "Apr 10, 2020 10:00 AM",
+    status: "Inactive",
+  },
+  {
+    organization: "Lendsqr",
+    username: "Tosin Dokunmu",
+    email: "tosin@lendsqr.com",
+    phone: "08060780900",
+    date: "Apr 10, 2020 10:00 AM",
+    status: "Active",
+  },
+];
+
+ 

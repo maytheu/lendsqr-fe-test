@@ -61,3 +61,17 @@ declare type Guarantors = {
 declare type UserInfoProps = {
   data: Education | Profile | Socials | Guarantors;
 };
+
+declare type TableData = {
+  organization: string;
+  username: string;
+  email: string;
+  phone: string;
+  date: string;
+  status: "Active" | "Inactive" | "Pending" | "Blacklisted";
+};
+
+declare type TableProps = {
+  header: string[];
+  data: [];
+};
