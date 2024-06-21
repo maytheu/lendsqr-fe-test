@@ -192,7 +192,7 @@ export const mockUser: User = {
   },
 };
 
-export const tableLink:TableData[] = [
+export const tableLink: TableData[] = [
   {
     organization: "Lendsqr",
     username: "Adedeji",
@@ -275,4 +275,6 @@ export const tableLink:TableData[] = [
   },
 ];
 
- 
+export const mockStatusData = ["Active", "Inactive", "Pending", "Blacklisted"];
+
+export const mockOrgData = ["Lendsqr", "Irorun"];

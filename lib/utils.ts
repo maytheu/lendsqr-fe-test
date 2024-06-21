@@ -32,3 +32,12 @@ const dupTableData = (arr: TableData[], dataLength: number) => {
 };
 
 export const tableData = dupTableData(tableLink, 200);
+
+export const filterFormSchema = z.object({
+  organization: z.string().optional(),
+  username: z.string().optional(),
+  email: z.string().optional(),
+  date: z.string().optional(),
+  phone: z.string().optional(),
+  status: z.string().optional(),
+});

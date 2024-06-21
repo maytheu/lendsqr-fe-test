@@ -90,7 +90,7 @@ export const TableComp = ({
   });
   // table.getColumn("email")?.setFilterValue(event.target.value)
   return (
-    <div className="px-3 mb-5">
+    <div className="px3 mb-5">
       <div className="mb-3 shadow-lg">
         <Table className="bg-white shadow-lg">
           <TableHeader>
@@ -234,8 +234,6 @@ const DataTablePagination = ({ table }: DataTablePaginationProps<TableData>) => 
     setCurrentPage((page) => page + 1);
     return table.nextPage();
   };
-
-  console.log(pagesToShow);
 
   const previousPage = () => {
     setCurrentPage((page) => page - 1);
