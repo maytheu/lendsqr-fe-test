@@ -58,7 +58,6 @@ interface DataTablePaginationProps<TData> {
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
-  filter?: TData;
 }
 
 /**
@@ -69,8 +68,7 @@ interface DataTableProps<TData, TValue> {
 export const TableComp = ({
   columns,
   data,
-  filter = {},
-}: DataTableProps<TData, TValue>) => {
+}: DataTableProps<TableData, TValue>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const table = useReactTable({
@@ -92,50 +90,58 @@ export const TableComp = ({
   });
   // table.getColumn("email")?.setFilterValue(event.target.value)
   return (
-    <div className="rounded-md border">
-      <Table>
-        <TableHeader>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => {
-                return (
-                  <TableHead key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                  </TableHead>
-                );
-              })}
-            </TableRow>
-          ))}
-        </TableHeader>
-        <TableBody>
-          {table.getRowModel().rows?.length ? (
-            table.getRowModel().rows.map((row) => (
-              <TableRow
-                key={row.id}
-                data-state={row.getIsSelected() && "selected"}
-              >
-                {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id}>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </TableCell>
-                ))}
+    <div className="px-3 mb-5">
+      <div className="mb-3 shadow-lg">
+        <Table className="bg-white shadow-lg">
+          <TableHeader>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id}>
+                {headerGroup.headers.map((header) => {
+                  return (
+                    <TableHead key={header.id}>
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                    </TableHead>
+                  );
+                })}
               </TableRow>
-            ))
-          ) : (
-            <TableRow>
-              <TableCell colSpan={columns.length} className="h-24 text-center">
-                No results.
-              </TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
-      <div className="flex items-center justify-end space-x-2 py-4">
+            ))}
+          </TableHeader>
+          <TableBody>
+            {table.getRowModel().rows?.length ? (
+              table.getRowModel().rows.map((row) => (
+                <TableRow
+                  key={row.id}
+                  data-state={row.getIsSelected() && "selected"}
+                >
+                  {row.getVisibleCells().map((cell) => (
+                    <TableCell key={cell.id}>
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))
+            ) : (
+              <TableRow>
+                <TableCell
+                  colSpan={columns.length}
+                  className="h-24 text-center"
+                >
+                  No results.
+                </TableCell>
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </div>
+      <div className="flex items-center justify-end space-x-2 py-6">
         <DataTablePagination table={table} />
       </div>
     </div>
@@ -150,10 +156,10 @@ export const TableComp = ({
 export const ColumnHeader = ({ title }: { title: string }) => {
   return (
     <div className="flex items-center gap-2">
-      <span className="font-semibold uppercase text-12 text-primary-400">
+      <span className="font-semibold uppercase text-12 text-primary-100">
         {title}
       </span>
-      <ListFilter size={16} />
+      <ListFilter size={14} />
     </div>
   );
 };
@@ -211,23 +217,41 @@ export const TableAction = ({ email }: { email: string }) => {
   );
 };
 
-const DataTablePagination = ({ table }: DataTablePaginationProps<TData>) => {
-  const firstPages = [0, 1, 2,];
+const DataTablePagination = ({ table }: DataTablePaginationProps<TableData>) => {
+  const [currentPage, setCurrentPage] = useState(0);
+  const firstPages = [0, 1, 2];
   const lastPages = [table.getPageCount() - 2, table.getPageCount() - 1];
   const pagesToShow = Array.from(new Set([...firstPages, ...lastPages])).filter(
     (page) => page >= 0 && page < table.getPageCount()
   );
+
+  const setPage = (page: number) => {
+    setCurrentPage(page);
+    return table.setPageIndex(page);
+  };
+
+  const nextPage = () => {
+    setCurrentPage((page) => page + 1);
+    return table.nextPage();
+  };
+
+  console.log(pagesToShow);
+
+  const previousPage = () => {
+    setCurrentPage((page) => page - 1);
+    return table.previousPage();
+  };
   return (
     <div className="w-full flex items-center justify-between">
-      <div className="flex items-center">
-        Showing{" "}
+      <div className="flex items-center text-primary-100">
+        Showing &nbsp;
         <Select
           value={`${table.getState().pagination.pageSize}`}
           onValueChange={(value) => {
             table.setPageSize(Number(value));
           }}
         >
-          <SelectTrigger className="h-8 w-[70px]">
+          <SelectTrigger className="h-8 w-[70px] bg-primary-100/25">
             <SelectValue placeholder={table.getState().pagination.pageSize} />
           </SelectTrigger>
           <SelectContent side="top">
@@ -238,38 +262,39 @@ const DataTablePagination = ({ table }: DataTablePaginationProps<TData>) => {
             ))}
           </SelectContent>
         </Select>
-        out of {table.getFilteredRowModel().rows.length}
+        &nbsp; out of {table.getFilteredRowModel().rows.length}
       </div>
 
       <div className="flex items-center space-x-2">
         <Button
           variant="outline"
-          className="h-8 w-8 p-0"
-          onClick={() => table.previousPage()}
+          className={"h-8 w-8 p-1 bg-primary-100/25"}
+          onClick={() => previousPage()}
           disabled={!table.getCanPreviousPage()}
         >
-          <span className="sr-only">Go to previous page</span>
           <ChevronLeftIcon className="h-4 w-4" />
         </Button>
         <div className="flex">
-        {pagesToShow.map((page, i) => (
-          <Fragment key={i}>
-            {i > 0 && pagesToShow[i - 1] !== page - 1 && (
-              <span className="ellipsis">...</span>
-            )}
-            <Button
-              variant="outline"
-              className="h-8 w-8 p-0"
-              onClick={() => console.log(`Go to page ${i + 1}`)}
-            >
-              <span className="">{i + 1}</span>
-            </Button>
-          </Fragment>
-        ))}</div>
+          {pagesToShow.map((page, i) => (
+            <Fragment key={i}>
+              {i > 0 && pagesToShow[i - 1] !== page - 1 && (
+                <span className="ellipsis">...</span>
+              )}
+              <Button
+                variant="outline"
+                className={"h-8 w-8 p-1 border-none"}
+                onClick={() => page !== currentPage && setPage(page)}
+                disabled={page === currentPage}
+              >
+                <span className="">{page + 1}</span>
+              </Button>
+            </Fragment>
+          ))}
+        </div>
         <Button
           variant="outline"
-          className="h-8 w-8 p-0"
-          onClick={() => table.nextPage()}
+          className="h-8 w-8 p-1 bg-primary-100/25"
+          onClick={() => nextPage()}
           disabled={!table.getCanNextPage()}
         >
           <span className="sr-only">Go to next page</span>
@@ -279,4 +304,3 @@ const DataTablePagination = ({ table }: DataTablePaginationProps<TData>) => {
     </div>
   );
 };
-
