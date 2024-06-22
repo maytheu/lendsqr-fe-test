@@ -5,7 +5,7 @@ import { AvatarImage, Avatar } from "./ui/avatar";
 import MobileNav from "./MobileNav";
 import SearchBar from "./SearchBar";
 
-const Header = () => {
+const Header = ({ user }: { user: string }) => {
   return (
     <header className="bg-white h-40 flex items-center justify-between">
       <div className="flex gap-3">
@@ -29,7 +29,7 @@ const Header = () => {
         </Avatar>
 
         <Link href={"/user-profile"} className="hidden xl:flex">
-          <p className="font-normal">Adedeji</p>
+          <p className="font-normal">{user.split(" ")[0]}</p>
 
           <Image
             width={20}

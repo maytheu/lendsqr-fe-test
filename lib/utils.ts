@@ -23,7 +23,7 @@ export const loginFormSchema = z.object({
  * @param dataLength - number new array length
  * @returns 
  */
-const dupTableData = (arr: TableData[], dataLength: number) => {
+export const dupTableData = (arr: TableData[], dataLength: number) => {
   let duplicatedArray: TableData[] = [];
   while (duplicatedArray.length < dataLength) {
     duplicatedArray = duplicatedArray.concat(arr);

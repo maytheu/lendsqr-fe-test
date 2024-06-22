@@ -9,15 +9,30 @@ import {
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { mockOrgData, mockStatusData } from "@/constants";
+import { fetchUsers } from "@/lib/actions";
 import { cn, filterFormSchema, tableData } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ColumnDef } from "@tanstack/react-table";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 const UserTransaction = () => {
   const [filterForm, setFileterForm] = useState(true);
+  const [users, setUsers] = useState<TableData[]>([]);
+
+  const getUsers = async () => {
+    try {      
+      const data = await fetchUsers();      
+      if (data?.length) setUsers(data);
+    } catch (error) {
+      console.error("Error fetching data");
+    }
+  };
+
+  useEffect(() => {
+    getUsers();
+  }, []);
 
   const filterFormValues = useForm<z.infer<typeof filterFormSchema>>({
     resolver: zodResolver(filterFormSchema),
@@ -174,7 +189,7 @@ const UserTransaction = () => {
         </div>
         <TableComp
           columns={filterForm ? columnDefFilter : columnDef}
-          data={tableData}
+          data={users}
         />
       </div>
     </div>
