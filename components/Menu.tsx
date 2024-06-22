@@ -9,6 +9,13 @@ import {
   customerSideLinks,
   settingsSideLinks,
 } from "@/constants";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 const Menu = () => {
   const pathName = usePathname();
@@ -16,7 +23,23 @@ const Menu = () => {
 
   return (
     <>
-      {/* dropdown */}
+      <div className="flex gp-3 items-center justify-center xl:justify-start pl-4 py-3 mb-2">
+        <Image
+          src={"/icons/org.svg"}
+          alt={"dashboard"}
+          width={20}
+          height={20}
+        />
+        <Select>
+          <SelectTrigger className="w-[180px] text-primary-400 border-none">
+            <SelectValue placeholder="Switch Oranization" />
+          </SelectTrigger>
+          <SelectContent className="bg-white">
+              <SelectItem value="organization 1">Organization 1</SelectItem>
+              <SelectItem value="organization 2">Organization 2</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
       <Link
         href="/"
         className={cn(
@@ -96,7 +119,6 @@ const Menu = () => {
           </Link>
         );
       })}
-
       <p className="text-primary-400 pl-6 uppercase font-medium">settings</p>
       {settingsSideLinks.map((link) => {
         isActive = pathName.includes(link.route) && link.route !== "/";
