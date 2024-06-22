@@ -75,7 +75,7 @@ const UserDetails = ({ user, account }: UserData) => {
             </div>
 
             <div className="hidden xl:flex flex-col px-10 -mt-5 py-4  border-r-2 border-l-2">
-              <h1 className="font-medium">User's Tier</h1>
+              <h1 className="font-medium">User&apos;s Tier</h1>
               <span className="text-10">
                 <TierRating tier={user.tier} />
               </span>
@@ -92,7 +92,7 @@ const UserDetails = ({ user, account }: UserData) => {
           </div>
           <div className="flex items-center  mt-3 gap-4  xl:hidden">
             <div className="flex flex-col justify-start items-center pr-5 border-r-2">
-              <h1 className="font-medium">User's Tier</h1>
+              <h1 className="font-medium">User&apos;s Tier</h1>
               <span className="text-10">
                 <TierRating tier={user.tier} />
               </span>
