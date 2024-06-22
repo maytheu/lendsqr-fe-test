@@ -5,6 +5,7 @@ import {
   ColumnFiltersState,
   Row,
   SortingState,
+  Table as ReactTable,
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
@@ -52,7 +53,7 @@ import {
 } from "@radix-ui/react-icons";
 
 interface DataTablePaginationProps<TData> {
-  table: Table<TData>;
+  table: ReactTable<TData>;
 }
 
 interface DataTableProps<TData, TValue> {
@@ -65,10 +66,10 @@ interface DataTableProps<TData, TValue> {
  * @param {columnDef, data}
  * @returns Table component
  */
-export const TableComp = ({
+export const TableComp = <TData, TValue>({
   columns,
   data,
-}: DataTableProps<TableData, TValue>) => {
+}: DataTableProps<TData, TValue>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const table = useReactTable({
@@ -217,7 +218,9 @@ export const TableAction = ({ email }: { email: string }) => {
   );
 };
 
-const DataTablePagination = ({ table }: DataTablePaginationProps<TableData>) => {
+function DataTablePagination<TData>({
+  table,
+}: DataTablePaginationProps<TData>) {
   const [currentPage, setCurrentPage] = useState(0);
   const firstPages = [0, 1, 2];
   const lastPages = [table.getPageCount() - 2, table.getPageCount() - 1];
@@ -301,4 +304,4 @@ const DataTablePagination = ({ table }: DataTablePaginationProps<TableData>) => 
       </div>
     </div>
   );
-};
+}
