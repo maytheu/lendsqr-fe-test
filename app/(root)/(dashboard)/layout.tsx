@@ -39,7 +39,7 @@ export default function RootLayout({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {userCards.map((card) => {
             return (
-              <div className="flex justify-center" key={card.title}>
+              <div className="flex justify-normal md:justify-center" key={card.title}>
                 <Card className="pt-7 w-[300px] border-none shadow-lg bg-white">
                   <CardHeader>
                     <div className="relative flex">

@@ -7,7 +7,7 @@ import SearchBar from "./SearchBar";
 
 const Header = () => {
   return (
-    <header className="bg-white h-20 flex items-center justify-between">
+    <header className="bg-white h-40 flex items-center justify-between">
       <div className="flex gap-3">
         <Link href="/" className="cursor-pointer ml-4 xl:hidden">
           <Image width={100} height={45} alt="logo" src="/icons/logo.svg" />

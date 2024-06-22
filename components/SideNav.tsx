@@ -11,7 +11,7 @@ const SideNav = () => {
       <nav className="flex flex-col gap-4">
         <Link
           href="/"
-          className="mb-12 ml-6 cursor-pointer items-center gap-2 flex"
+          className="mb-1 ml-6 cursor-pointer items-center gap-2 flex"
         >
           <Image src="/icons/logo.svg" width={150} height={32} alt="Logo" />
         </Link>
